@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Offline JS</title>
+    <style>
+      * {
+        overflow: hidden;
+        box-sizing: content-box;
+      }
+      body {
+        background-color: rgb(39, 37, 37);
+      }
+      body div {
+        display: flex;
+        justify-content: center;
+      }
+      #online,
+      #offline {
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        border-radius: 20px;
+      }
+      #online {
+        background-color: blue;
+        display: none;
+      }
+      #offline {
+        background-color: red;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div id="online" title="Online Mode"></div>
+      <div id="offline" title="Offline Mode"></div>
+
+      <script>
+        let online = document.getElementById("online");
+        let offline = document.getElementById("offline");
+        setInterval(() => {
+          if (navigator.onLine == true) {
+            online.style.display = "block";
+            offline.style.display = "none";
+          } else {
+            offline.style.display = "block";
+            online.style.display = "none";
+          }
+        }, 1);
+      </script>
+    </div>
+  </body>
+</html>
